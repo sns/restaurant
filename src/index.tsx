@@ -1,21 +1,18 @@
 import * as dotenv from "dotenv";
-dotenv.config();
-import ApolloClient from "apollo-boost";
 import * as React from "react";
-import { ApolloProvider } from "react-apollo";
-import * as ReactDOM from "react-dom";
-import registerServiceWorker from "./registerServiceWorker";
-import Sidebar from "./Components/Sidebar";
+import * as ReactDom from "react-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import { rootReducer } from "@src/Common/Reducers/RootReducer";
+import Sidebar from "@src/Common/Components/Sidebar";
+import { devToolsEnhancer } from "redux-devtools-extension";
 
-const client = new ApolloClient({
-  uri: process.env.REACT_APP_GRAPHQL_URI
-});
+dotenv.config();
 
-const Main = () => (
-  <ApolloProvider client={client}>
+const store = createStore(rootReducer, devToolsEnhancer({}));
+ReactDom.render(
+  <Provider store={store}>
     <Sidebar />
-  </ApolloProvider>
+  </Provider>,
+  document.getElementById("root") as HTMLElement
 );
-
-ReactDOM.render(<Main />, document.getElementById("root") as HTMLElement);
-registerServiceWorker();
