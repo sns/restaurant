@@ -8,6 +8,7 @@
     "install:client": "npm i --prefix client",
     "build:client": "npm run build --prefix client",
     "start:client": "npm run start --prefix client",
+    "install:server": "npm install",
     "watch:server": "ts-node-dev --respawn --transpileOnly server/app.ts",
     "build:server": "tsc && node ./build/app.js",
     "start:server": "npm run watch:server",

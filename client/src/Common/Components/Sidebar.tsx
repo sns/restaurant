@@ -6,22 +6,27 @@ import Home from "./Home";
 
 const styles = {
   navBarContainer: {
-    height: 40,
-    backgroundColor: "black",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    color: "white"
+      position: "fixed",
+      top: 0,
+      width: "100%",
+      zIndex:100,
+      opacity: 0.8,
+      height: 80,
+      backgroundColor: "black",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      color: "white",
   } as React.CSSProperties,
   navBarItem: {
-    color: "white",
-    display: "flex",
-    flexDirection: "row",
-    width: 300,
-    justifyContent: "center",
-    alignItems: "center"
-  } as React.CSSProperties
-};
+      color: "white",
+      display: "flex",
+      flexDirection: "row",
+      width: 300,
+      justifyContent: "center",
+      alignItems: "center",
+  } as React.CSSProperties,
+}
 export class Sidebar extends React.Component {
   render() {
     return (
