@@ -2,6 +2,7 @@ import * as React from "react";
 import MenuItem from "@src/Menu/Models/MenuItem";
 
 export interface DispatchProps {
+  loadMenuItems: () => void;
   createMenuItem: (name: string, price: number) => void;
 }
 export interface StateProps {
@@ -9,8 +10,12 @@ export interface StateProps {
 }
 type Props = DispatchProps & StateProps;
 export class Menu extends React.Component<Props> {
+  componentDidMount() {
+    this.props.loadMenuItems();
+  }
+
   createNewMenuItem = () => {
-    this.props.createMenuItem("Barg", 17);
+    this.props.createMenuItem("new one", 17);
   };
 
   renderMenuItem = (item: MenuItem) => {

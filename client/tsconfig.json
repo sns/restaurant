@@ -3,28 +3,33 @@
     "baseUrl": "./",
     "paths": {
       "@src/*": ["src/*"],
-      "@Components/*": ["src/Components/*"],
-      "@Containers/*": ["src/Containers/*"],
-      "@Actions/*": ["src/Actions/*"]
+      "@Common/*": ["src/Common/*"]
     },
     "outDir": "build/dist",
-    "module": "esnext",
-    "target": "es6",
-    "lib": ["es6", "dom"],
+    "module": "commonjs", // "es2015" for tree-shaking
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "target": "es5", // "es2015" for ES6+ engines
+    "lib": ["dom", "es2015", "es2016.array.include"],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
-    "moduleResolution": "node",
     "rootDir": "src",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": false,
-    "importHelpers": true,
-    "strictNullChecks": true,
+    "strictNullChecks": false,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true
+    // "declaration": false, // don't emit declarations,
+    // "emitDecoratorMetadata": true,
+    // "experimentalDecorators": true,
+    // //"forceConsistentCasingInFileNames": true,
+    // "importHelpers": true // importing helper functions from tslib
+    // //"noEmitHelpers": true, // disable emitting inline helper functions
   },
   "exclude": [
     "node_modules",

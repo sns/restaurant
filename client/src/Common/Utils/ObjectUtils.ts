@@ -16,6 +16,7 @@ export function removeNullProperties(object: object) {
 }
 
 export const ObjectUtils = {
+  isNullOrUndefined,
   difference,
   removeNullProperties
 };
