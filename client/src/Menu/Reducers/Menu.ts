@@ -7,7 +7,7 @@ const menu = (state = [], action: any) => {
   switch (action.type) {
     case getPromiseType(actions.fetchMenuItems).fulfilled:
       const menuItems: MenuItem[] = action.payload;
-      return [...state, ...menuItems];
+      return menuItems;
     case ActionName.CreateMenuItem:
       return [...state, action.payload];
     default:
