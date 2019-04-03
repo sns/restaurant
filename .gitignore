@@ -36,5 +36,6 @@ Thumbs.db
 
 # Ignore built ts files
 build/**/*
+client/build/**/*
 
 package-lock.json
