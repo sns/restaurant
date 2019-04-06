@@ -7,14 +7,14 @@ const styles = {
   parallax: {
     backgroundImage: `url('${process.env.PUBLIC_URL}/images/sofre1.jpg')`,
     height: 500,
-    width: "100%",
+    width: "100v",
     backgroundAttachment: "fixed",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "conver"
+    backgroundSize: "cover"
   } as React.CSSProperties,
   bodyContent: {
-    height: 500,
+    height: 200,
     backgroundColor: "#f2f2f2",
     fontSize: 36
   } as React.CSSProperties
