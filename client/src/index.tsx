@@ -7,13 +7,7 @@ import "./Style/Site.css";
 import "./Style/flexboxgrid.css";
 
 import { configureStore } from "./Common/Store";
-<<<<<<< Updated upstream
-// import { createStore } from "redux";
-// import { rootReducer } from "@src/Common/Store/RootReducer";
-// import { devToolsEnhancer } from "redux-devtools-extension";
-=======
 import NavBar from "@src/Common/Components/NavBar";
->>>>>>> Stashed changes
 
 dotenv.config();
 
