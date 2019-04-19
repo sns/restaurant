@@ -4,9 +4,10 @@
   "description": "Full Stack Restaurant App Powered by Express and React",
   "main": "server.js",
   "scripts": {
+    "tsc": "tsc",
     "start": "node ./build/app.js",
     "dev-client": "cd client && npm start",
-    "dev-server": "nodemon --exec ./node_modules/.bin/ts-node -- ./server/server.ts",
+    "dev-server": "nodemon --exec ./node_modules/.bin/ts-node -- ./server/app.ts",
     "test": "cd client && npm test",
     "heroku-postbuild": "tsc & cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
