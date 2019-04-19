@@ -1,6 +1,24 @@
 import * as express from "express";
+import path from "path";
 
 const app: express.Application = express.default();
+const port = process.env.PORT || 3456;
+
+// Static file declaration
+app.use(express.static(path.join(__dirname, "client/build")));
+
+// Production Mode
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client/build")));
+  app.get("*", (req, res) => {
+    res.sendfile(path.join(__dirname, "client/build/index.html"));
+  });
+}
+
+// Build Mode
+app.get("*", (req, res) => {
+  res.sendfile(path.join(__dirname, "client/public/index.html"));
+});
 
 app.get("/fetchMenuItems", (req, res) => {
   const list = [
@@ -12,6 +30,6 @@ app.get("/fetchMenuItems", (req, res) => {
   res.json(list);
 });
 
-app.listen(process.env.PORT || 3456, () => {
+app.listen(port, () => {
   console.log("Server is listening on port 3456");
 });
