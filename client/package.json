@@ -23,7 +23,8 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "tslint:fix": "tslint --fix --project ."
+    "tslint:fix": "tslint --fix --project .",
+    "deploy": "gh-pages -d build"
   },
   "proxy": "http://localhost:3456",
   "devDependencies": {
@@ -50,5 +51,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "homepage": "https://sns.github.io/restaurant/"
 }
