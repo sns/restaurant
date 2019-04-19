@@ -12,6 +12,6 @@ app.get("/fetchMenuItems", (req, res) => {
   res.json(list);
 });
 
-app.listen(3456, () => {
+app.listen(process.env.PORT || 3456, () => {
   console.log("Server is listening on port 3456");
 });
