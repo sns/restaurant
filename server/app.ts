@@ -5,19 +5,19 @@ const app: express.Application = express.default();
 const port = process.env.PORT || 3456;
 
 // Static file declaration
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 // Production Mode
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client/build")));
+  app.use(express.static(path.join(__dirname, "../client/build")));
   app.get("*", (req, res) => {
-    res.sendfile(path.join(__dirname, "client/build/index.html"));
+    res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
   });
 }
 
 // Build Mode
 app.get("*", (req, res) => {
-  res.sendfile(path.join(__dirname, "client/public/index.html"));
+  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });
 
 app.get("/fetchMenuItems", (req, res) => {
