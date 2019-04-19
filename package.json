@@ -4,18 +4,11 @@
   "description": "Full Stack Restaurant App Powered by Express and React",
   "main": "server.js",
   "scripts": {
-    "tsc": "tsc",
-    "install:client": "npm i --prefix client",
-    "build:client": "npm run build --prefix client",
-    "start:client": "npm run start --prefix client",
-    "install:server": "npm install",
-    "watch:server": "ts-node-dev --respawn --transpileOnly server/app.ts",
-    "build:server": "tsc && node ./build/app.js",
-    "start:server": "npm run watch:server",
-    "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "postinstall": "npm run tsc"
+    "start": "node ./build/index.js",
+    "dev-client": "cd react-app && npm start",
+    "dev-server": "nodemon --exec ./node_modules/.bin/ts-node -- ./server/index.ts",
+    "test": "cd react-app && npm test",
+    "heroku-postbuild": "tsc & cd react-app/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "repository": {
     "type": "git",
