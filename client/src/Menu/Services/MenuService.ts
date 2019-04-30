@@ -1,5 +1,5 @@
 import MenuItem from "@src/Menu/Models/MenuItem";
-import { getJson } from "@src/ApiClient";
+import { getJson } from "@src/Common/Utils/ApiClient";
 
 export interface MenuService {
   fetchMenuItems: () => Promise<MenuItem[]>;

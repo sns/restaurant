@@ -1,4 +1,4 @@
-import { isNullOrUndefined } from "./Common/Utils/ObjectUtils";
+import { isNullOrUndefined } from "./ObjectUtils";
 
 export const defaultRequestInit: RequestInit = {
   credentials: "same-origin"
