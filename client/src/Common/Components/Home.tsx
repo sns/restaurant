@@ -1,36 +1,33 @@
 import * as React from "react";
 
-const styles = {
-  body: {
-    marginTop: 100,
-  } as React.CSSProperties,
-  parallax: {
-    backgroundImage: `url('${process.env.PUBLIC_URL}/images/sofre1.jpg')`,
-    height: 500,
-    width: "100v",
-    backgroundAttachment: "fixed",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover"
-  } as React.CSSProperties,
-  bodyContent: {
-    height: 200,
-    backgroundColor: "#f2f2f2",
-    fontSize: 36
-  } as React.CSSProperties
-};
+// const styles = {
+//   // parallax: {
+//   //   backgroundImage: `url('${process.env.PUBLIC_URL}/Images/sofre1.jpg')`,
+//   //   height: 500,
+//   //   width: "100vw",
+//   //   backgroundAttachment: "fixed",
+//   //   backgroundPosition: "center",
+//   //   backgroundRepeat: "no-repeat",
+//   //   backgroundSize: "cover"
+//   // } as React.CSSProperties,
+//   // bodyContent: {
+//   //   height: 400,
+//   //   backgroundColor: "#f2f2f2",
+//   //   fontSize: 36
+//   // } as React.CSSProperties
+// };
 export class Home extends React.Component {
   public render() {
     return (
-      <div style={styles.body}>
-        <div style={styles.parallax} />
-
-        <div style={styles.bodyContent}>
-          Scroll Up and Down this page to see the parallax scrolling effect.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget velit rhoncus elit fringilla ultrices vel fringilla arcu. Nunc gravida eros eu volutpat egestas. In hac habitasse platea dictumst. Proin eget sodales urna. Praesent posuere lectus eu libero blandit, a venenatis ipsum facilisis. Pellentesque nec vehicula libero, ac sollicitudin urna. Fusce ultricies molestie velit.
+      <section>
+        <div className="container">
+          <div className="row center-xs center-sm center-md center-ls middle-xs middle-sm middle-md middle-lg">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <h1>Welcome to <span className="primary-text">House Of Kabob</span></h1>
+            </div>
+          </div>
         </div>
-        <div style={styles.parallax} />
-      </div>
+      </section>
     );
   }
 }
