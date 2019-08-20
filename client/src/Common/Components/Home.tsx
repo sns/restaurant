@@ -1,5 +1,4 @@
-import * as React from "react"
-// import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";
+import * as React from "react";
 
 const styles = {
     containerStye: {
@@ -25,18 +24,19 @@ const styles = {
     } as React.CSSProperties,
     section1: {
         textAlign: "center",
-        margin: 50,
+        padding: 50,
+        background: "rgba(255, 246, 242, 0.94)",
     } as React.CSSProperties,
     showcaseHeaderStyle: {
         height: 70,
     } as React.CSSProperties,
-}
+};
 export class Home extends React.Component {
     public render() {
         return (
             <div style={styles.containerStye}>
                 <div style={styles.showcaseStyle} />
-                <section style={styles.section1}>
+                <div style={styles.section1}>
                     <h1 style={styles.showcaseHeaderStyle}>
                         Welcome to House Of Kabob
                     </h1>
@@ -52,17 +52,17 @@ export class Home extends React.Component {
                         mouth-watering foods are available for catering,
                         carry-out, or fine in-restaurant dining.
                     </p>
-                    <div>
+                    <div className="primary-text">
                         City Papaer — Winner of The Best Middle Eastern
                         Restaurant Best of
                     </div>
-                    <div>
+                    <div className="primary-text">
                         Baltimore — Voted Best Kabob Baltimore Magazine — Best
                         Kabob of Baltimore
                     </div>
-                </section>
+                </div>
                 <div style={styles.showcaseStyle2} />
-                <section style={styles.section1}>
+                <div style={styles.section1}>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Quae beatae voluptatibus obcaecati fuga aspernatur dolore,
                     quia, quibusdam et similique quaerat provident cumque
@@ -77,10 +77,10 @@ export class Home extends React.Component {
                     nobis distinctio. Quo repudiandae, sunt sint, modi
                     temporibus dicta esse maiores facilis voluptatibus facere,
                     illum cumque!
-                </section>
+                </div>
             </div>
-        )
+        );
     }
 }
 
-export default Home
+export default Home;
