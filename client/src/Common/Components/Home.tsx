@@ -1,18 +1,86 @@
-import * as React from "react";
+import * as React from "react"
+// import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";
 
-interface Props {
-    style?: React.CSSProperties
+const styles = {
+    containerStye: {
+        height: "100%",
+    } as React.CSSProperties,
+    showcaseStyle: {
+        backgroundImage: "url(./images/hok.jpg)",
+        height: "500px",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        boxShadow: "inset 0 0 0 1000px rgba(0,0,0,0.3)",
+    } as React.CSSProperties,
+    showcaseStyle2: {
+        backgroundImage: "url(./images/sofre1.jpg)",
+        height: "300px",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        boxShadow: "inset 0 0 0 1000px rgba(0,0,0,0.3)",
+    } as React.CSSProperties,
+    section1: {
+        textAlign: "center",
+        margin: 50,
+    } as React.CSSProperties,
+    showcaseHeaderStyle: {
+        height: 70,
+    } as React.CSSProperties,
 }
-export class Home extends React.Component<Props> {
+export class Home extends React.Component {
     public render() {
         return (
-            <section style={this.props.style}>
-                <div className="container">
-                    <h1>Welcome to <span className="primary-text">House Of Kabob</span></h1>
-                </div>
-            </section>
-        );
+            <div style={styles.containerStye}>
+                <div style={styles.showcaseStyle} />
+                <section style={styles.section1}>
+                    <h1 style={styles.showcaseHeaderStyle}>
+                        Welcome to House Of Kabob
+                    </h1>
+                    <p className="primary-text">
+                        Based on Ancient Persia’s thousands of year-old
+                        recipies, House of Kabob offers an exquisite taste of
+                        middle-eastern dining. Whether it’s our famous ground
+                        beef Koobideh kabob, succulent lamb tenderloin kabob, or
+                        the delicately spiced broiled salmon, our food will
+                        definitely leave a satisfied palate. Whether it’s a
+                        romantic night out or an office party, the House of
+                        Kabob is perfect for every occasion. All of our
+                        mouth-watering foods are available for catering,
+                        carry-out, or fine in-restaurant dining.
+                    </p>
+                    <div>
+                        City Papaer — Winner of The Best Middle Eastern
+                        Restaurant Best of
+                    </div>
+                    <div>
+                        Baltimore — Voted Best Kabob Baltimore Magazine — Best
+                        Kabob of Baltimore
+                    </div>
+                </section>
+                <div style={styles.showcaseStyle2} />
+                <section style={styles.section1}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quae beatae voluptatibus obcaecati fuga aspernatur dolore,
+                    quia, quibusdam et similique quaerat provident cumque
+                    possimus veniam natus! Ipsa quibusdam reiciendis pariatur
+                    fugiat similique, iste amet quis aut at odit blanditiis
+                    cumque ipsum adipisci repellat praesentium veritatis cum
+                    deleniti. Animi temporibus obcaecati et dolor quia sapiente
+                    alias numquam repellendus a expedita in nisi dolore, sit ad
+                    non placeat quos molestiae reiciendis aliquam tempora?
+                    Soluta repudiandae dolorem excepturi, qui amet eligendi
+                    rerum sint illum consectetur quibusdam nostrum deserunt,
+                    nobis distinctio. Quo repudiandae, sunt sint, modi
+                    temporibus dicta esse maiores facilis voluptatibus facere,
+                    illum cumque!
+                </section>
+            </div>
+        )
     }
 }
 
-export default Home;
+export default Home
