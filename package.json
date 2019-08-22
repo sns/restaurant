@@ -1,34 +1,37 @@
 {
-  "name": "restaurant",
-  "version": "1.0.0",
-  "description": "Full Stack Restaurant App Powered by Express and React",
-  "main": "server.js",
-  "scripts": {
-    "tsc": "tsc",
-    "start": "node ./build/app.js",
-    "dev-client": "cd client && npm run start",
-    "dev-server": "nodemon --exec ./node_modules/.bin/ts-node -- ./server/app.ts",
-    "test": "cd client && npm test",
-    "heroku-postbuild": "tsc & cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
-    "watch": "concurrently \"npm run dev-server\" \"npm run dev-client\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sns/restaurant.git"
-  },
-  "author": "Sina",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sns/restaurant/issues"
-  },
-  "homepage": "https://github.com/sns/restaurant#readme",
-  "devDependencies": {},
-  "dependencies": {
-    "@types/express": "^4.16.1",
-    "concurrently": "^4.1.0",
-    "express": "^4.16.4",
-    "nodemon": "^1.18.10",
-    "ts-node-dev": "^1.0.0-pre.32",
-    "typescript": "^3.4.1"
-  }
+    "name": "restaurant",
+    "version": "1.0.0",
+    "engines": {
+        "node": "10.14.0"
+    },
+    "description": "Full Stack Restaurant App Powered by Express and React",
+    "main": "server.js",
+    "scripts": {
+        "tsc": "tsc",
+        "start": "node ./build/app.js",
+        "dev-client": "cd client && npm run start",
+        "dev-server": "nodemon --exec ./node_modules/.bin/ts-node -- ./server/app.ts",
+        "test": "cd client && npm test",
+        "heroku-postbuild": "tsc & cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+        "watch": "concurrently \"npm run dev-server\" \"npm run dev-client\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sns/restaurant.git"
+    },
+    "author": "Sina",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/sns/restaurant/issues"
+    },
+    "homepage": "https://github.com/sns/restaurant#readme",
+    "devDependencies": {},
+    "dependencies": {
+        "@types/express": "^4.16.1",
+        "concurrently": "^4.1.0",
+        "express": "^4.16.4",
+        "nodemon": "^1.18.10",
+        "ts-node-dev": "^1.0.0-pre.32",
+        "typescript": "^3.4.1"
+    }
 }
