@@ -1,65 +1,86 @@
 import * as React from "react";
 
 const styles = {
-  body: {
-    height: "100vh",
-    scrollBehavior: "smooth"
-  } as React.CSSProperties,
-  parallax: {
-    backgroundImage: `url('${process.env.PUBLIC_URL}/images/lambshanks1.jpg')`,
-    height: "600px",
-    width: "100%",
-    backgroundAttachment: "fixed",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover"
-  } as React.CSSProperties,
-  parallax1: {
-    backgroundImage: `url('${process.env.PUBLIC_URL}/images/kabob1.jpg')`,
-    height: "300px",
-    width: "100%",
-    backgroundAttachment: "fixed",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover"
-  } as React.CSSProperties,
-  bodyContent: {
-    fontSize: 36
-  } as React.CSSProperties
+    showcaseStyle: {
+        backgroundImage: "url(./images/hok.jpg)",
+        height: "500px",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        boxShadow: "inset 0 0 0 1000px rgba(0,0,0,0.3)",
+    } as React.CSSProperties,
+    showcaseStyle2: {
+        backgroundImage: "url(./images/sofre1.jpg)",
+        height: "300px",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundAttachment: "fixed",
+        boxShadow: "inset 0 0 0 1000px rgba(0,0,0,0.3)",
+    } as React.CSSProperties,
+    section1: {
+        textAlign: "center",
+        padding: 50,
+        background: "rgba(255, 246, 242, 0.94)",
+    } as React.CSSProperties,
+    showcaseHeaderStyle: {
+        height: 70,
+    } as React.CSSProperties,
 };
 export class Home extends React.Component {
-  public render() {
-    return (
-      <div style={styles.body}>
-        <div style={styles.parallax} />
-
-        <div style={styles.bodyContent}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium
-          dolore doloribus beatae dolores! Nesciunt repudiandae veritatis culpa
-          ullam ea deserunt harum rerum molestiae beatae non, et minus sit
-          provident odit iusto cumque, praesentium nihil corporis? Mollitia
-          dolores dolorum error eaque laborum quod facere corrupti sed nemo
-          impedit necessitatibus consequatur veritatis cum illo velit id minima,
-          labore asperiores ullam animi. Itaque labore quasi, rem deserunt natus
-          asperiores quibusdam praesentium maxime beatae eum et? Temporibus ea
-          explicabo architecto quia voluptates autem rerum consequatur maxime
-          necessitatibus officia incidunt perferendis soluta, sit odit doloribus
-          cum. Quod soluta beatae sunt, ipsum iusto quaerat optio aspernatur!
-        </div>
-        <div style={styles.parallax1} />
-        <div style={styles.bodyContent}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-          quia ullam alias. Perferendis nemo quibusdam sequi debitis laudantium
-          provident incidunt ipsum tempora reprehenderit nobis eum, officia
-          mollitia illo voluptates atque exercitationem quod vero at soluta
-          eligendi. Suscipit illo tenetur esse animi dolores sunt repudiandae
-          rem quis quos reiciendis recusandae amet nihil fugiat, nostrum saepe
-          nesciunt earum maiores a veritatis neque!
-        </div>
-        <div style={styles.parallax} />
-      </div>
-    );
-  }
+    public render() {
+        return (
+            <div>
+                <div style={styles.showcaseStyle} />
+                <div style={styles.section1}>
+                    <h1 style={styles.showcaseHeaderStyle}>
+                        Welcome to House Of Kabob
+                    </h1>
+                    <p className="primary-text">
+                        Based on Ancient Persia’s thousands of year-old
+                        recipies, House of Kabob offers an exquisite taste of
+                        middle-eastern dining. Whether it’s our famous ground
+                        beef Koobideh kabob, succulent lamb tenderloin kabob, or
+                        the delicately spiced broiled salmon, our food will
+                        definitely leave a satisfied palate. Whether it’s a
+                        romantic night out or an office party, the House of
+                        Kabob is perfect for every occasion. All of our
+                        mouth-watering foods are available for catering,
+                        carry-out, or fine in-restaurant dining.
+                    </p>
+                    <div className="primary-text">
+                        City Papaer — Winner of The Best Middle Eastern
+                        Restaurant Best of
+                    </div>
+                    <div className="primary-text">
+                        Baltimore — Voted Best Kabob Baltimore Magazine — Best
+                        Kabob of Baltimore
+                    </div>
+                </div>
+                <div style={styles.showcaseStyle2} />
+                <div style={styles.section1}>
+                    <p className="primary-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quae beatae voluptatibus obcaecati fuga aspernatur
+                        dolore, quia, quibusdam et similique quaerat provident
+                        cumque possimus veniam natus! Ipsa quibusdam reiciendis
+                        pariatur fugiat similique, iste amet quis aut at odit
+                        blanditiis cumque ipsum adipisci repellat praesentium
+                        veritatis cum deleniti. Animi temporibus obcaecati et
+                        dolor quia sapiente alias numquam repellendus a expedita
+                        in nisi dolore, sit ad non placeat quos molestiae
+                        reiciendis aliquam tempora? Soluta repudiandae dolorem
+                        excepturi, qui amet eligendi rerum sint illum
+                        consectetur quibusdam nostrum deserunt, nobis
+                        distinctio. Quo repudiandae, sunt sint, modi temporibus
+                        dicta esse maiores facilis voluptatibus facere, illum
+                        cumque!
+                    </p>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default Home;

@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.3.2",
+    "@material-ui/icons": "^4.2.1",
     "@types/dotenv": "^6.1.0",
     "@types/react-router-dom": "^4.3.1",
+    "@types/react-sticky": "^6.0.3",
     "apollo-boost": "^0.1.23",
     "dotenv": "^6.2.0",
     "graphql": "^14.0.2",
@@ -13,8 +16,10 @@
     "react-apollo": "^2.3.3",
     "react-dom": "^16.7.0",
     "react-facebook-login": "^4.1.1",
+    "react-media": "^1.9.2",
     "react-redux": "^6.0.1",
     "react-scripts-ts": "^4.0.8",
+    "react-sticky": "^6.0.3",
     "redux": "^4.0.1",
     "ts-node": "^7.0.1"
   },
