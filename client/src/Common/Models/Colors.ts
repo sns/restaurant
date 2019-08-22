@@ -1,5 +1,6 @@
 export const colors = {
-    primaryOrange: "rgb(206, 105, 19)",
+    primaryThemeColor: "rgba(255, 246, 242, 0.94)",
+    primaryRed: "#3f1418",
 };
 
 export default colors;

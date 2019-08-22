@@ -8,18 +8,17 @@ interface Props {
     style?: React.CSSProperties;
 }
 
-const gridTemplateAreas = `'. ${routes.map(x => x.key).join(" ")}'`;
-const gridTemplateColumns = `4fr repeat(${routes.length}, 150px)`;
+const gridTemplateAreas = `'. logo . ${routes.map(x => x.key).join(" ")}'`;
+const gridTemplateColumns = `100px 150px 3fr repeat(${routes.length}, 150px)`;
 const gridTemplateAreasMobile = `${routes.map(x => `'${x.key}'`).join(" ")}`;
 const gridTemplateColumnsMobile = `1fr`;
 const styles = {
     stickyNavBarStyle: {
         width: "100%",
         position: "sticky",
-        // background: "rgba(90, 61, 40, 0.71)",
-        // background: "rgb(111, 45, 9, 0.71)",
-        background: colors.primaryOrange,
+        background: "white",
         top: 0,
+        zIndex: 10,
     } as React.CSSProperties,
     navContainer: {
         display: "grid",
@@ -44,8 +43,18 @@ const styles = {
         alignItems: "center",
         textDecoration: "none",
         textAlign: "center",
-        color: "white",
+        color: colors.primaryRed,
         height: 30,
+    } as React.CSSProperties,
+    logo: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        textDecoration: "none",
+        textAlign: "center",
+        color: colors.primaryRed,
+        height: 30,
+        gridArea: "logo",
     } as React.CSSProperties,
 };
 
@@ -77,6 +86,9 @@ export class NavBar extends React.Component<Props> {
     renderDesktop = () => {
         return (
             <div style={styles.navContainer}>
+                <div style={styles.logo}>
+                    <img src="./images/logo.png" />
+                </div>
                 {routes.map((route, index) => this.renderNavLink(route, index))}
             </div>
         );
