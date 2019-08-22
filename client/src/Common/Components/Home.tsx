@@ -1,9 +1,6 @@
 import * as React from "react";
 
 const styles = {
-    containerStye: {
-        height: "100%",
-    } as React.CSSProperties,
     showcaseStyle: {
         backgroundImage: "url(./images/hok.jpg)",
         height: "500px",
@@ -34,7 +31,7 @@ const styles = {
 export class Home extends React.Component {
     public render() {
         return (
-            <div style={styles.containerStye}>
+            <div>
                 <div style={styles.showcaseStyle} />
                 <div style={styles.section1}>
                     <h1 style={styles.showcaseHeaderStyle}>
@@ -63,20 +60,23 @@ export class Home extends React.Component {
                 </div>
                 <div style={styles.showcaseStyle2} />
                 <div style={styles.section1}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quae beatae voluptatibus obcaecati fuga aspernatur dolore,
-                    quia, quibusdam et similique quaerat provident cumque
-                    possimus veniam natus! Ipsa quibusdam reiciendis pariatur
-                    fugiat similique, iste amet quis aut at odit blanditiis
-                    cumque ipsum adipisci repellat praesentium veritatis cum
-                    deleniti. Animi temporibus obcaecati et dolor quia sapiente
-                    alias numquam repellendus a expedita in nisi dolore, sit ad
-                    non placeat quos molestiae reiciendis aliquam tempora?
-                    Soluta repudiandae dolorem excepturi, qui amet eligendi
-                    rerum sint illum consectetur quibusdam nostrum deserunt,
-                    nobis distinctio. Quo repudiandae, sunt sint, modi
-                    temporibus dicta esse maiores facilis voluptatibus facere,
-                    illum cumque!
+                    <p className="primary-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quae beatae voluptatibus obcaecati fuga aspernatur
+                        dolore, quia, quibusdam et similique quaerat provident
+                        cumque possimus veniam natus! Ipsa quibusdam reiciendis
+                        pariatur fugiat similique, iste amet quis aut at odit
+                        blanditiis cumque ipsum adipisci repellat praesentium
+                        veritatis cum deleniti. Animi temporibus obcaecati et
+                        dolor quia sapiente alias numquam repellendus a expedita
+                        in nisi dolore, sit ad non placeat quos molestiae
+                        reiciendis aliquam tempora? Soluta repudiandae dolorem
+                        excepturi, qui amet eligendi rerum sint illum
+                        consectetur quibusdam nostrum deserunt, nobis
+                        distinctio. Quo repudiandae, sunt sint, modi temporibus
+                        dicta esse maiores facilis voluptatibus facere, illum
+                        cumque!
+                    </p>
                 </div>
             </div>
         );

@@ -2,14 +2,10 @@ import * as React from "react";
 import Media from "react-media";
 import { NavLink } from "react-router-dom";
 
-import { Route as RouteItem, routes } from "@Common/Models";
+import { Route as RouteItem, routes, colors } from "@Common/Models";
 
 interface Props {
     style?: React.CSSProperties;
-}
-
-interface State {
-    navbarStyle: React.CSSProperties;
 }
 
 const gridTemplateAreas = `'. ${routes.map(x => x.key).join(" ")}'`;
@@ -17,22 +13,13 @@ const gridTemplateColumns = `4fr repeat(${routes.length}, 150px)`;
 const gridTemplateAreasMobile = `${routes.map(x => `'${x.key}'`).join(" ")}`;
 const gridTemplateColumnsMobile = `1fr`;
 const styles = {
-    navBarStyle: {
-        width: "100%",
-        background: "rgba(90, 61, 40, 0.71)",
-        top: 0,
-        right: 0,
-    },
     stickyNavBarStyle: {
+        width: "100%",
         position: "sticky",
-        background: "rgba(90, 61, 40, 0.71)",
+        // background: "rgba(90, 61, 40, 0.71)",
+        // background: "rgb(111, 45, 9, 0.71)",
+        background: colors.primaryOrange,
         top: 0,
-    } as React.CSSProperties,
-    fixedNavBarStyle: {
-        // background: "transparent",
-        position: "fixed",
-        top: 0,
-        right: 0,
     } as React.CSSProperties,
     navContainer: {
         display: "grid",
@@ -70,30 +57,7 @@ const linkStyles = routes.reduce((acc, item) => {
     return acc;
 }, {});
 
-export class NavBar extends React.Component<Props, State> {
-    constructor(props: Props) {
-        super(props);
-        this.state = {
-            navbarStyle: styles.navBarStyle,
-        };
-    }
-    componentDidMount() {
-        window.addEventListener("scroll", this.handleScroll);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener("scroll", this.handleScroll);
-    }
-
-    handleScroll = (event: Event) => {
-        this.setState({
-            navbarStyle:
-                window.pageYOffset >= styles.navContainer.height
-                    ? styles.stickyNavBarStyle
-                    : styles.fixedNavBarStyle,
-        });
-    };
-
+export class NavBar extends React.Component<Props> {
     renderNavLink = (route: RouteItem, index: number) => {
         return (
             <NavLink key={index} style={linkStyles[route.key]} to={route.path}>
@@ -123,7 +87,7 @@ export class NavBar extends React.Component<Props, State> {
             <div
                 style={{
                     ...this.props.style,
-                    ...this.state.navbarStyle,
+                    ...styles.stickyNavBarStyle,
                 }}
             >
                 <Media query="(max-width: 760px)">
