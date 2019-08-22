@@ -18,7 +18,7 @@ dotenv.config();
 const store = configureStore();
 
 ReactDom.render(
-    <Provider store={store}>
+    <Provider store={store as any}>
         <App />
     </Provider>,
     document.getElementById("root") as HTMLElement
