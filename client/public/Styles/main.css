@@ -12,9 +12,3 @@ html {
 .container {
     margin: auto;
 }
-
-.primary-text {
-    font-size: 17px;
-    line-height: 1.5;
-    font-style: italic;
-}
