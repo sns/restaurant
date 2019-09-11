@@ -1,1 +1,1 @@
-export * from "./ObjectUtils";
+export * from "./objectUtils";
