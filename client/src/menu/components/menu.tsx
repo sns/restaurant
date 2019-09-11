@@ -12,6 +12,7 @@ export interface StateProps {
     items: MenuItem[];
 }
 type Props = DispatchProps & StateProps;
+
 export class Menu extends React.Component<Props> {
     componentDidMount() {
         this.props.loadMenuItems();
@@ -23,10 +24,13 @@ export class Menu extends React.Component<Props> {
 
     renderMenuItem = (item: MenuItem) => {
         return (
-            <Card key={item.menuItemKey} style={{ width: 200 }}>
+            <Card
+                key={item.menuItemKey}
+                style={{ gridArea: `card-${item.menuItemKey}` }}
+            >
                 <CardHeader title={item.name} subheader={`$${item.price}`} />
                 <CardMedia
-                    image="./images/kebab.jpg"
+                    image="./images/kabob1.jpg"
                     title="kabob"
                     style={{ height: 200 }}
                 />
@@ -35,8 +39,18 @@ export class Menu extends React.Component<Props> {
     };
 
     render() {
+        const templateArea = `'${this.props.items
+            .map(x => `card-${x.menuItemKey}`)
+            .join(" ")}'`;
+        const cardGridStyle = {
+            display: "grid",
+            gridTemplateAreas: templateArea,
+            gridTemplateColumns: `repeat(${this.props.items.length}, 1fr)`,
+            gridTemplateRows: "auto",
+            gridColumnGap: 20,
+        } as React.CSSProperties;
         return (
-            <div>
+            <div style={cardGridStyle}>
                 {this.props.items.map(x => this.renderMenuItem(x))}
                 <button
                     onClick={this.createNewMenuItem}
