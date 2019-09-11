@@ -1,45 +1,45 @@
 {
-  "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@Images/*": ["src/Images/*"],
-      "@Styles/*": ["src/Styles/*"],
-      "@src/*": ["src/*"],
-      "@Common/*": ["src/Common/*"]
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "@images/*": ["src/images/*"],
+            "@styles/*": ["src/styles/*"],
+            "@src/*": ["src/*"],
+            "@common/*": ["src/common/*"]
+        },
+        "outDir": "build/dist",
+        "module": "commonjs", // "es2015" for tree-shaking
+        "moduleResolution": "node",
+        "noEmitOnError": true,
+        "noFallthroughCasesInSwitch": true,
+        "target": "es5", // "es2015" for ES6+ engines
+        "lib": ["dom", "es2015", "es2016.array.include"],
+        "sourceMap": true,
+        "allowJs": true,
+        "jsx": "react",
+        "rootDir": "src",
+        "forceConsistentCasingInFileNames": false,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": false,
+        "strictNullChecks": false,
+        "suppressImplicitAnyIndexErrors": true,
+        "noUnusedLocals": true,
+        "allowSyntheticDefaultImports": true
+        // "declaration": false, // don't emit declarations,
+        // "emitDecoratorMetadata": true,
+        // "experimentalDecorators": true,
+        // //"forceConsistentCasingInFileNames": true,
+        // "importHelpers": true // importing helper functions from tslib
+        // //"noEmitHelpers": true, // disable emitting inline helper functions
     },
-    "outDir": "build/dist",
-    "module": "commonjs", // "es2015" for tree-shaking
-    "moduleResolution": "node",
-    "noEmitOnError": true,
-    "noFallthroughCasesInSwitch": true,
-    "target": "es5", // "es2015" for ES6+ engines
-    "lib": ["dom", "es2015", "es2016.array.include"],
-    "sourceMap": true,
-    "allowJs": true,
-    "jsx": "react",
-    "rootDir": "src",
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": false,
-    "strictNullChecks": false,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "allowSyntheticDefaultImports": true
-    // "declaration": false, // don't emit declarations,
-    // "emitDecoratorMetadata": true,
-    // "experimentalDecorators": true,
-    // //"forceConsistentCasingInFileNames": true,
-    // "importHelpers": true // importing helper functions from tslib
-    // //"noEmitHelpers": true, // disable emitting inline helper functions
-  },
-  "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts"
-  ]
+    "exclude": [
+        "node_modules",
+        "build",
+        "scripts",
+        "acceptance-tests",
+        "webpack",
+        "jest",
+        "src/setupTests.ts"
+    ]
 }

@@ -3,12 +3,9 @@ import * as React from "react";
 import * as ReactDom from "react-dom";
 import { Provider } from "react-redux";
 
-import "./Style/Site.css";
-import "./Style/flexboxgrid.css";
+import { configureStore } from "./common/store";
 
-import { configureStore } from "./Common/Store";
-
-import App from "./App";
+import App from "./app";
 // import { createStore } from "redux";
 // import { rootReducer } from "@src/Common/Store/RootReducer";
 // import { devToolsEnhancer } from "redux-devtools-extension";

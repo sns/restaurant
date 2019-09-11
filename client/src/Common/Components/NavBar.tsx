@@ -2,7 +2,7 @@ import * as React from "react";
 import Media from "react-media";
 import { NavLink } from "react-router-dom";
 
-import { Route as RouteItem, routes, colors } from "@Common/Models";
+import { Route as RouteItem, routes, colors } from "@common/models";
 
 interface Props {
     style?: React.CSSProperties;

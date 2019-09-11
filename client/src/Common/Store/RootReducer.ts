@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
-import menuItems from "@src/Menu/Reducers/Menu";
-import MenuItem from "@src/Menu/Models/MenuItem";
+import menuItems from "@src/menu/reducers/menu";
+import MenuItem from "@src/menu/models/menuItem";
 
 export interface RootState {
-  menuItems: MenuItem[];
+    menuItems: MenuItem[];
 }
 
 export const rootReducer = combineReducers<RootState>({
-  menuItems
+    menuItems,
 });

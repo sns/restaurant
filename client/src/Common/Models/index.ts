@@ -1,3 +1,3 @@
-export { Route } from "./Route";
-export { routes } from "./Routes";
-export { colors } from "./Colors";
+export { Route } from "./route";
+export { routes } from "./routes";
+export { colors } from "./colors";

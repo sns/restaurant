@@ -1,7 +1,7 @@
 import * as React from "react";
-import NavBar from "./Common/Components/NavBar";
+import NavBar from "./common/components/navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { routes, Route as RouteItem } from "./Common/Models";
+import { routes, Route as RouteItem } from "./common/models";
 
 export const App: React.FC = props => {
     return (

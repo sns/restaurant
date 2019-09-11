@@ -1,16 +1,16 @@
-import MenuItem from "@src/Menu/Models/MenuItem";
-import { getJson } from "@src/Common/Utils/ApiClient";
+import MenuItem from "@src/menu/models/menuItem";
+import { getJson } from "@src/common/utils/apiClient";
 
 export interface MenuService {
-  fetchMenuItems: () => Promise<MenuItem[]>;
+    fetchMenuItems: () => Promise<MenuItem[]>;
 }
 
 export function fetchMenuItems(): Promise<MenuItem[]> {
-  return getJson("/fetchMenuItems");
+    return getJson("/fetchMenuItems");
 }
 
 export const menuService: MenuService = {
-  fetchMenuItems
+    fetchMenuItems,
 };
 
 export default menuService;
