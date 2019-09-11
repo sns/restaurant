@@ -8,6 +8,7 @@
     "dependencies": {
         "@material-ui/core": "^4.3.2",
         "@material-ui/icons": "^4.2.1",
+        "@material-ui/lab": "^4.0.0-alpha.26",
         "@types/dotenv": "^6.1.0",
         "@types/material-ui": "^0.21.7",
         "@types/react-router-dom": "^4.3.1",
