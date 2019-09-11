@@ -3,7 +3,7 @@ import * as React from "react";
 const styles = {
     showcaseStyle: {
         backgroundImage: "url(./images/hok.jpg)",
-        height: "500px",
+        height: "650px",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -11,7 +11,7 @@ const styles = {
     } as React.CSSProperties,
     showcaseStyle2: {
         backgroundImage: "url(./images/sofre1.jpg)",
-        height: "300px",
+        height: "550px",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
@@ -26,8 +26,9 @@ const styles = {
         gridTemplateAreas: `'header'
                             '.'  
                             'intro'
+                            '.'
                              'awards'`,
-        gridTemplateRows: "70px 10px 2fr 1fr",
+        gridTemplateRows: "70px 10px 2fr 50px 1fr",
         gridTemplateColumns: "auto",
     } as React.CSSProperties,
     intro: {
@@ -53,6 +54,14 @@ const styles = {
     } as React.CSSProperties,
     awards: {
         gridArea: "awards",
+        fontSize: "17px",
+        lineHeight: "1.5",
+        fontStyle: "italic",
+    } as React.CSSProperties,
+    primaryTextPragrph: {
+        fontSize: "17px",
+        lineHeight: "1.5",
+        textAlign: "justify",
     } as React.CSSProperties,
 };
 export class Home extends React.Component {
@@ -65,7 +74,7 @@ export class Home extends React.Component {
                         Welcome to House Of Kabob
                     </h1>
                     <div style={styles.intro}>
-                        <p className="primary-text">
+                        <p style={styles.primaryTextPragrph}>
                             Based on Ancient Persia’s thousands of year-old
                             recipies, House of Kabob offers an exquisite taste
                             of middle-eastern dining. Whether it’s our famous
@@ -80,11 +89,11 @@ export class Home extends React.Component {
                         </p>
                     </div>
                     <div style={styles.awards}>
-                        <div className="primary-text">
+                        <div>
                             City Papaer — Winner of The Best Middle Eastern
                             Restaurant Best of
                         </div>
-                        <div className="primary-text">
+                        <div>
                             Baltimore — Voted Best Kabob Baltimore Magazine —
                             Best Kabob of Baltimore
                         </div>
@@ -93,7 +102,7 @@ export class Home extends React.Component {
                 <div style={styles.showcaseStyle2} />
                 <div style={styles.section2}>
                     <div style={styles.catering}>
-                        <p className="primary-text">
+                        <p style={styles.primaryTextPragrph}>
                             Having a party and can’t come to the House of Kabob
                             for dining in, yet still want our scrumptious food?
                             No problem! We offer all of our food on the menu for
@@ -108,8 +117,8 @@ export class Home extends React.Component {
                         </p>
                     </div>
                     <div style={styles.about}>
-                        <p className="primary-text">
-                            Haven’t cuisine tried Persian before and don’t know
+                        <p style={styles.primaryTextPragrph}>
+                            Haven’t tried Persian cuisine before and don’t know
                             what to order? No problem! Come to our buffet where
                             we offer a wide variety of some of our best dishes.
                             Everything is made fresh daily: soup, salads,
