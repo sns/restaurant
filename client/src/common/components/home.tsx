@@ -2,12 +2,13 @@ import * as React from "react";
 
 const styles = {
     showcaseStyle: {
-        backgroundImage: "url(./images/hok.jpg)",
+        backgroundImage: "url(./images/sofre1.jpg)",
         height: "650px",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
+        boxShadow: "inset 0 0 0 1000px rgba(0,0,0,0.3)",
     } as React.CSSProperties,
     showcaseStyle2: {
         backgroundImage: "url(./images/sofre1.jpg)",
