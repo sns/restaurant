@@ -3,6 +3,11 @@ import MenuItem from "@src/menu/models/menuItem";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
+import CardActions from "@material-ui/core/CardActions";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import Typography from "@material-ui/core/Typography";
+import CardContent from "@material-ui/core/CardContent";
+import Button from "@material-ui/core/Button";
 
 export interface DispatchProps {
     loadMenuItems: () => void;
@@ -25,12 +30,35 @@ export class Menu extends React.Component<Props> {
     renderMenuItem = (item: MenuItem) => {
         return (
             <Card key={item.menuItemKey}>
-                <CardHeader title={item.name} subheader={`$${item.price}`} />
-                <CardMedia
-                    image="./images/kabob1.jpg"
-                    title="kabob"
-                    style={{ height: 200 }}
-                />
+                <CardActionArea>
+                    <CardHeader
+                        title={item.name}
+                        subheader={`$${item.price}`}
+                    />
+                    <CardContent>
+                        {/* <Typography variant="h5" component="h2">
+                            {`${item.name} $${item.price}`}
+                        </Typography> */}
+                        <Typography
+                            variant="body2"
+                            color="textSecondary"
+                            component="p"
+                        >
+                            Famous Persian ground beef kabob with a hint of
+                            onion flavor.
+                        </Typography>
+                    </CardContent>
+                    <CardMedia
+                        image="./images/kabob1.jpg"
+                        title="kabob"
+                        style={{ height: 200 }}
+                    />
+                    <CardActions>
+                        <Button size="small" color="primary">
+                            Add To Cart
+                        </Button>
+                    </CardActions>
+                </CardActionArea>
             </Card>
         );
     };
