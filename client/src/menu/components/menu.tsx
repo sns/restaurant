@@ -24,10 +24,7 @@ export class Menu extends React.Component<Props> {
 
     renderMenuItem = (item: MenuItem) => {
         return (
-            <Card
-                key={item.menuItemKey}
-                style={{ gridArea: `card-${item.menuItemKey}` }}
-            >
+            <Card key={item.menuItemKey}>
                 <CardHeader title={item.name} subheader={`$${item.price}`} />
                 <CardMedia
                     image="./images/kabob1.jpg"
@@ -39,23 +36,19 @@ export class Menu extends React.Component<Props> {
     };
 
     render() {
-        const templateArea = `'${this.props.items
-            .map(x => `card-${x.menuItemKey}`)
-            .join(" ")}'`;
         const cardGridStyle = {
             display: "grid",
-            gridTemplateAreas: templateArea,
-            gridTemplateColumns: `repeat(${this.props.items.length}, 1fr)`,
-            gridTemplateRows: "auto",
-            gridColumnGap: 20,
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gridGap: 30,
+            padding: 50,
         } as React.CSSProperties;
         return (
             <div style={cardGridStyle}>
                 {this.props.items.map(x => this.renderMenuItem(x))}
-                <button
+                {/* <button
                     onClick={this.createNewMenuItem}
                     value="Create New Menu Item"
-                />
+                /> */}
             </div>
         );
     }
