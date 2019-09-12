@@ -23,7 +23,7 @@ const styles = {
         boxShadow: "inset 0 0 0 1000px rgba(0,0,0,0.3)",
     } as React.CSSProperties,
     section1: {
-        padding: 30,
+        padding: 50,
         background: "rgba(255, 246, 242, 0.94)",
     } as React.CSSProperties,
     intro: {
