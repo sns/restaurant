@@ -1,4 +1,5 @@
 import * as React from "react";
+import HamburgerMenu from "react-hamburger-menu";
 import Media from "react-media";
 import { NavLink } from "react-router-dom";
 
@@ -7,11 +8,14 @@ import { Route as RouteItem, routes, colors } from "@common/models";
 interface Props {
     style?: React.CSSProperties;
 }
+interface State {
+    isHamburgerOpen: boolean;
+}
 
 const gridTemplateAreas = `'. logo . ${routes.map(x => x.key).join(" ")}'`;
 const gridTemplateColumns = `100px 150px 3fr repeat(${routes.length}, 150px)`;
-const gridTemplateAreasMobile = `${routes.map(x => `'${x.key}'`).join(" ")}`;
-const gridTemplateColumnsMobile = `1fr`;
+const gridTemplateAreasMobile = `'. hamburger' ${routes.map(x => `'${x.key} ${x.key}'`).join(" ")}`;
+const gridTemplateColumnsMobile = `1fr 100px`;
 const styles = {
     stickyNavBarStyle: {
         width: "100%",
@@ -33,8 +37,15 @@ const styles = {
         display: "grid",
         gridTemplateAreas: `${gridTemplateAreasMobile}`,
         gridTemplateColumns: `${gridTemplateColumnsMobile}`,
-        gridTemplateRows: "auto",
+        gridTemplateRows: "50px",
         gridGap: "20px",
+        alignContent: "center",
+    } as React.CSSProperties,
+    navContainerHamburger: {
+        display: "grid",
+        gridTemplateAreas: `'. hamburger'`,
+        gridTemplateColumns: `1fr 100px`,
+        gridTemplateRows: "50px",
         alignContent: "center",
     } as React.CSSProperties,
     navLink: {
@@ -56,6 +67,12 @@ const styles = {
         height: 30,
         gridArea: "logo",
     } as React.CSSProperties,
+    hamburger: {
+        gridArea: "hamburger",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+    }
 };
 
 const linkStyles = routes.reduce((acc, item) => {
@@ -66,22 +83,70 @@ const linkStyles = routes.reduce((acc, item) => {
     return acc;
 }, {});
 
-export class NavBar extends React.Component<Props> {
+export class NavBar extends React.Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            isHamburgerOpen: false
+        }
+    }
+
     renderNavLink = (route: RouteItem, index: number) => {
         return (
-            <NavLink key={index} style={linkStyles[route.key]} to={route.path}>
+            <NavLink key={index} style={linkStyles[route.key]} to={route.path} onClick={this.closeHamburgerMenu}>
                 {route.label}
             </NavLink>
         );
     };
 
-    renderMobile = () => {
+    renderHamburgerIcon = () => {
+        return (
+            <div style={styles.hamburger}>
+                <HamburgerMenu
+                    isOpen={this.state.isHamburgerOpen}
+                    menuClicked={this.onHamburgerClick}
+                    width={18}
+                    height={15}
+                    strokeWidth={1}
+                    rotate={0}
+                    color='black'
+                    borderRadius={0}
+                    animationDuration={0.5}
+                />
+            </div>
+        );
+    }
+
+    onHamburgerClick = () => {
+        this.setState({
+            isHamburgerOpen: !this.state.isHamburgerOpen,
+        });
+    }
+
+    closeHamburgerMenu = () => {
+        this.setState({
+            isHamburgerOpen: false,
+        });
+
+    }
+
+    renderHamburgerOpen = () => {
         return (
             <div style={styles.navContainerMobile}>
+                {this.renderHamburgerIcon()}
                 {routes.map((route, index) => this.renderNavLink(route, index))}
             </div>
         );
     };
+
+    renderHamburgerClose = () => {
+        return (
+            <div style={styles.navContainerHamburger}>
+                {this.renderHamburgerIcon()}
+            </div>
+        );
+
+    }
 
     renderDesktop = () => {
         return (
@@ -104,7 +169,7 @@ export class NavBar extends React.Component<Props> {
             >
                 <Media query="(max-width: 760px)">
                     {(matched: boolean) =>
-                        matched ? this.renderMobile() : this.renderDesktop()
+                        matched ? this.state.isHamburgerOpen ? this.renderHamburgerOpen() : this.renderHamburgerClose(): this.renderDesktop()
                     }
                 </Media>
             </div>
