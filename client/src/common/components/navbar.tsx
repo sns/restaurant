@@ -1,6 +1,6 @@
 import * as React from "react";
 import HamburgerMenu from "react-hamburger-menu";
-import Media from "react-media";
+// import Media from "react-media";
 import { NavLink } from "react-router-dom";
 
 import { Route as RouteItem, routes, colors } from "@common/models";
@@ -14,7 +14,8 @@ interface State {
 
 const gridTemplateAreas = `'. logo . ${routes.map(x => x.key).join(" ")}'`;
 const gridTemplateColumns = `100px 150px 3fr repeat(${routes.length}, 150px)`;
-const gridTemplateAreasMobile = `'. hamburger' ${routes.map(x => `'${x.key} ${x.key}'`).join(" ")}`;
+const gridTemplateAreasMobile = `'. hamburger'
+                                  'linksContainer linksContainer'`;
 const gridTemplateColumnsMobile = `1fr 100px`;
 const styles = {
     stickyNavBarStyle: {
@@ -23,6 +24,7 @@ const styles = {
         background: "white",
         top: 0,
         zIndex: 10,
+        transition: "background 0.2s ease",
     } as React.CSSProperties,
     navContainer: {
         display: "grid",
@@ -37,16 +39,17 @@ const styles = {
         display: "grid",
         gridTemplateAreas: `${gridTemplateAreasMobile}`,
         gridTemplateColumns: `${gridTemplateColumnsMobile}`,
-        gridTemplateRows: "50px",
-        gridGap: "20px",
+        gridTemplateRows: "50px 1fr",
+        gridGap: "200px 20px",
         alignContent: "center",
     } as React.CSSProperties,
     navContainerHamburger: {
         display: "grid",
-        gridTemplateAreas: `'. hamburger'`,
-        gridTemplateColumns: `1fr 100px`,
-        gridTemplateRows: "50px",
+        gridTemplateAreas: `'. logo . hamburger'`,
+        gridTemplateColumns: `100px 150px 1fr 100px`,
+        gridTemplateRows: "auto",
         alignContent: "center",
+        height: 60,
     } as React.CSSProperties,
     navLink: {
         display: "flex",
@@ -71,8 +74,16 @@ const styles = {
         gridArea: "hamburger",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center"
-    }
+        alignItems: "center",
+    },
+    linksContainer: {
+        gridArea: "linksContainer",
+        display: "grid",
+        gridTemplateAreas: `${routes.map(x => `'${x.key}'`).join(" ")}`,
+        gridTemplateColumns: "1fr",
+        gridTemplateRows: "auto",
+        gridGap: 30,
+    },
 };
 
 const linkStyles = routes.reduce((acc, item) => {
@@ -87,13 +98,18 @@ export class NavBar extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            isHamburgerOpen: false
-        }
+            isHamburgerOpen: false,
+        };
     }
 
     renderNavLink = (route: RouteItem, index: number) => {
         return (
-            <NavLink key={index} style={linkStyles[route.key]} to={route.path} onClick={this.closeHamburgerMenu}>
+            <NavLink
+                key={index}
+                style={linkStyles[route.key]}
+                to={route.path}
+                onClick={this.closeHamburgerMenu}
+            >
                 {route.label}
             </NavLink>
         );
@@ -109,32 +125,43 @@ export class NavBar extends React.Component<Props, State> {
                     height={15}
                     strokeWidth={1}
                     rotate={0}
-                    color='black'
+                    color="black"
                     borderRadius={0}
                     animationDuration={0.5}
                 />
             </div>
         );
-    }
+    };
 
     onHamburgerClick = () => {
         this.setState({
             isHamburgerOpen: !this.state.isHamburgerOpen,
         });
-    }
+    };
 
     closeHamburgerMenu = () => {
         this.setState({
             isHamburgerOpen: false,
         });
+    };
 
-    }
+    renderLogo = () => {
+        return (
+            <div style={styles.logo}>
+                <img src="./images/logo.png" />
+            </div>
+        );
+    };
 
     renderHamburgerOpen = () => {
         return (
             <div style={styles.navContainerMobile}>
                 {this.renderHamburgerIcon()}
-                {routes.map((route, index) => this.renderNavLink(route, index))}
+                <div style={styles.linksContainer}>
+                    {routes.map((route, index) =>
+                        this.renderNavLink(route, index)
+                    )}
+                </div>
             </div>
         );
     };
@@ -142,18 +169,16 @@ export class NavBar extends React.Component<Props, State> {
     renderHamburgerClose = () => {
         return (
             <div style={styles.navContainerHamburger}>
+                {this.renderLogo()}
                 {this.renderHamburgerIcon()}
             </div>
         );
-
-    }
+    };
 
     renderDesktop = () => {
         return (
             <div style={styles.navContainer}>
-                <div style={styles.logo}>
-                    <img src="./images/logo.png" />
-                </div>
+                {this.renderLogo()}
                 {routes.map((route, index) => this.renderNavLink(route, index))}
             </div>
         );
@@ -165,13 +190,28 @@ export class NavBar extends React.Component<Props, State> {
                 style={{
                     ...this.props.style,
                     ...styles.stickyNavBarStyle,
+                    height: this.state.isHamburgerOpen ? "100vh" : "100%",
+                    background: this.state.isHamburgerOpen
+                        ? "rgba(255, 240, 59, 0.85)"
+                        : "white",
+                    // transform: this.state.isHamburgerOpen
+                    //     ? "translateX(0%)"
+                    //     : "translateX(-50%)",
                 }}
             >
-                <Media query="(max-width: 760px)">
+                {this.state.isHamburgerOpen
+                    ? this.renderHamburgerOpen()
+                    : this.renderHamburgerClose()}
+
+                {/* <Media query="(max-width: 760px)">
                     {(matched: boolean) =>
-                        matched ? this.state.isHamburgerOpen ? this.renderHamburgerOpen() : this.renderHamburgerClose(): this.renderDesktop()
+                        matched
+                            ? this.state.isHamburgerOpen
+                                ? this.renderHamburgerOpen()
+                                : this.renderHamburgerClose()
+                            : this.renderDesktop()
                     }
-                </Media>
+                </Media> */}
             </div>
         );
     }
