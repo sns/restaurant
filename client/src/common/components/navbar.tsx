@@ -1,6 +1,6 @@
 import * as React from "react";
 import HamburgerMenu from "react-hamburger-menu";
-// import Media from "react-media";
+import Media from "react-media";
 import { NavLink } from "react-router-dom";
 
 import { Route as RouteItem, routes, colors } from "@common/models";
@@ -166,10 +166,10 @@ export class NavBar extends React.Component<Props, State> {
         );
     };
 
-    renderHamburgerClose = () => {
+    renderHamburgerClose = (isMobile: boolean) => {
         return (
             <div style={styles.navContainerHamburger}>
-                {this.renderLogo()}
+                {!isMobile && this.renderLogo()}
                 {this.renderHamburgerIcon()}
             </div>
         );
@@ -194,14 +194,15 @@ export class NavBar extends React.Component<Props, State> {
                     background: this.state.isHamburgerOpen
                         ? "rgba(255, 240, 59, 0.85)"
                         : "white",
-                    // transform: this.state.isHamburgerOpen
-                    //     ? "translateX(0%)"
-                    //     : "translateX(-50%)",
                 }}
             >
-                {this.state.isHamburgerOpen
-                    ? this.renderHamburgerOpen()
-                    : this.renderHamburgerClose()}
+                <Media query="(max-width: 760px)">
+                    {(isMobile: boolean) =>
+                        this.state.isHamburgerOpen
+                            ? this.renderHamburgerOpen()
+                            : this.renderHamburgerClose(isMobile)
+                    }
+                </Media>
 
                 {/* <Media query="(max-width: 760px)">
                     {(matched: boolean) =>
